@@ -1,131 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>域名出售 | Domain for Sale</title>
+    <title>IDYield.com - Premium Domain For Sale</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             color: #333;
         }
 
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
 
-        h1 {
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lang-switch {
+            display: flex;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .lang-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .main-content {
             text-align: center;
-            color: #4CAF50;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .language-switch {
-            text-align: right;
+        .domain-name {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
         }
 
-        .language-switch button {
-            padding: 10px;
-            margin: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .contact {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .contact a {
-            text-decoration: none;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .domain {
-            font-size: 24px;
-            font-weight: bold;
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
             color: #333;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
+        .feature-desc {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .btn:hover {
-            background-color: #45a049;
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin: 40px 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-desc {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .domain-name {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-
 <body>
-
     <div class="container">
-        <div class="language-switch">
-            <button onclick="changeLanguage('en')">English</button>
-            <button onclick="changeLanguage('zh')">中文</button>
-        </div>
+        <header class="header">
+            <div class="logo">IDYield</div>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
+                <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+            </div>
+        </header>
 
-        <div id="content" class="content">
-            <h1 id="title">Domain for Sale</h1>
-            <p id="description">The domain <span class="domain">www.idyield.com</span> is available for sale.</p>
-            <p id="sub-description">If you are interested, please contact us at <a href="mailto:admin@idyield.com">admin@idyield.com</a>.</p>
-            <a href="mailto:admin@idyield.com" class="btn">Contact Now</a>
-        </div>
+        <main class="main-content">
+            <div id="zh-content">
+                <h1 class="domain-name">IDYield.com</h1>
+                <p class="tagline">优质域名，等待您的发现</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">品牌价值</h3>
+                        <p class="feature-desc">简洁易记的域名，完美契合身份识别、投资收益等多个领域的品牌需求</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💼</div>
+                        <h3 class="feature-title">商业潜力</h3>
+                        <p class="feature-desc">适合金融科技、数据分析、投资管理等高价值行业的企业使用</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="feature-title">发展前景</h3>
+                        <p class="feature-desc">随着数字经济的快速发展，优质域名的价值将持续增长</p>
+                    </div>
+                </div>
+            </div>
 
-        <div id="contact" class="contact">
-            <p id="contact-info">For inquiries, please email us at: <a href="mailto:admin@idyield.com">admin@idyield.com</a></p>
+            <div id="en-content" class="hidden">
+                <h1 class="domain-name">IDYield.com</h1>
+                <p class="tagline">Premium Domain, Awaiting Your Discovery</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">Brand Value</h3>
+                        <p class="feature-desc">Memorable and concise domain name, perfect for branding in identity, investment yield, and related fields</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💼</div>
+                        <h3 class="feature-title">Business Potential</h3>
+                        <p class="feature-desc">Ideal for high-value industries such as fintech, data analytics, and investment management</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="feature-title">Growth Prospects</h3>
+                        <p class="feature-desc">As the digital economy rapidly expands, premium domain values will continue to appreciate</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="cta-section">
+            <div id="zh-cta">
+                <h2 class="cta-title">有意购买？</h2>
+                <p class="cta-desc">这个优质域名现在可以转让。联系我们了解更多详情和报价。</p>
+                <a href="mailto:admin@idyield.com" class="contact-btn">
+                    <span>📧</span>
+                    联系我们
+                </a>
+            </div>
+            <div id="en-cta" class="hidden">
+                <h2 class="cta-title">Interested in Purchasing?</h2>
+                <p class="cta-desc">This premium domain is now available for transfer. Contact us for more details and pricing.</p>
+                <a href="mailto:admin@idyield.com" class="contact-btn">
+                    <span>📧</span>
+                    Contact Us
+                </a>
+            </div>
         </div>
     </div>
 
-    <script>
-        const content = {
-            en: {
-                title: "Domain for Sale",
-                description: "The domain <span class='domain'>www.idyield.com</span> is available for sale.",
-                subDescription: "If you are interested, please contact us at <a href='mailto:admin@idyield.com'>admin@idyield.com</a>.",
-                contactInfo: "For inquiries, please email us at: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>"
-            },
-            zh: {
-                title: "域名出售",
-                description: "域名 <span class='domain'>www.idyield.com</span> 正在出售。",
-                subDescription: "如果您感兴趣，请通过电子邮件联系: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>。",
-                contactInfo: "如有任何问题，请通过电子邮件联系我们: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>"
-            }
-        };
+    <footer class="footer">
+        <div id="zh-footer">
+            <p>&copy; 2025 IDYield.com. 优质域名销售 | 联系邮箱: admin@idyield.com</p>
+        </div>
+        <div id="en-footer" class="hidden">
+            <p>&copy; 2025 IDYield.com. Premium Domain Sale | Contact: admin@idyield.com</p>
+        </div>
+    </footer>
 
-        function changeLanguage(language) {
-            document.getElementById("title").innerHTML = content[language].title;
-            document.getElementById("description").innerHTML = content[language].description;
-            document.getElementById("sub-description").innerHTML = content[language].subDescription;
-            document.getElementById("contact-info").innerHTML = content[language].contactInfo;
+    <script>
+        function switchLanguage(lang) {
+            // 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+
+            // 切换内容
+            if (lang === 'zh') {
+                document.getElementById('zh-content').classList.remove('hidden');
+                document.getElementById('en-content').classList.add('hidden');
+                document.getElementById('zh-cta').classList.remove('hidden');
+                document.getElementById('en-cta').classList.add('hidden');
+                document.getElementById('zh-footer').classList.remove('hidden');
+                document.getElementById('en-footer').classList.add('hidden');
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                document.getElementById('zh-content').classList.add('hidden');
+                document.getElementById('en-content').classList.remove('hidden');
+                document.getElementById('zh-cta').classList.add('hidden');
+                document.getElementById('en-cta').classList.remove('hidden');
+                document.getElementById('zh-footer').classList.add('hidden');
+                document.getElementById('en-footer').classList.remove('hidden');
+                document.documentElement.lang = 'en';
+            }
         }
 
-        // Default language
-        changeLanguage('en');
+        // 添加页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // 添加邮件链接点击统计（如果需要）
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.contact-btn')) {
+                console.log('Contact button clicked');
+            }
+        });
     </script>
-
 </body>
-
 </html>
