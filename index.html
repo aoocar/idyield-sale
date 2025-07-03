@@ -1,67 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>域名出售 - IDYield.com</title>
+    <title>域名出售 | Domain for Sale</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f4f4f4;
             color: #333;
         }
-        header {
-            background-color: #0066cc;
-            color: white;
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
             text-align: center;
+            color: #4CAF50;
         }
-        header h1 {
-            margin: 0;
+
+        .language-switch {
+            text-align: right;
+            margin-bottom: 20px;
         }
+
+        .language-switch button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
         .content {
-            padding: 20px;
             text-align: center;
         }
-        .content h2 {
-            color: #0066cc;
-        }
+
         .contact {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #e6f7ff;
-        }
-        footer {
-            background-color: #333;
-            color: white;
+            margin-top: 30px;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            font-size: 16px;
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .domain {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>域名出售 - IDYield.com</h1>
-    </header>
-    
-    <div class="content">
-        <h2>出售优质域名</h2>
-        <p>我们正在出售 <strong>IDYield.com</strong> 这个高价值的域名！这个域名适合各类金融、投资及科技类业务，是您打造品牌的绝佳选择。</p>
-        
-        <p>如果您有兴趣购买该域名或了解更多详情，请通过以下方式与我们联系。</p>
-        
-        <div class="contact">
-            <p>联系方式：<a href="mailto:admin@idyield.com">admin@idyield.com</a></p>
+
+    <div class="container">
+        <div class="language-switch">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('zh')">中文</button>
+        </div>
+
+        <div id="content" class="content">
+            <h1 id="title">Domain for Sale</h1>
+            <p id="description">The domain <span class="domain">www.idyield.com</span> is available for sale.</p>
+            <p id="sub-description">If you are interested, please contact us at <a href="mailto:admin@idyield.com">admin@idyield.com</a>.</p>
+            <a href="mailto:admin@idyield.com" class="btn">Contact Now</a>
+        </div>
+
+        <div id="contact" class="contact">
+            <p id="contact-info">For inquiries, please email us at: <a href="mailto:admin@idyield.com">admin@idyield.com</a></p>
         </div>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 IDYield.com</p>
-    </footer>
+
+    <script>
+        const content = {
+            en: {
+                title: "Domain for Sale",
+                description: "The domain <span class='domain'>www.idyield.com</span> is available for sale.",
+                subDescription: "If you are interested, please contact us at <a href='mailto:admin@idyield.com'>admin@idyield.com</a>.",
+                contactInfo: "For inquiries, please email us at: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>"
+            },
+            zh: {
+                title: "域名出售",
+                description: "域名 <span class='domain'>www.idyield.com</span> 正在出售。",
+                subDescription: "如果您感兴趣，请通过电子邮件联系: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>。",
+                contactInfo: "如有任何问题，请通过电子邮件联系我们: <a href='mailto:admin@idyield.com'>admin@idyield.com</a>"
+            }
+        };
+
+        function changeLanguage(language) {
+            document.getElementById("title").innerHTML = content[language].title;
+            document.getElementById("description").innerHTML = content[language].description;
+            document.getElementById("sub-description").innerHTML = content[language].subDescription;
+            document.getElementById("contact-info").innerHTML = content[language].contactInfo;
+        }
+
+        // Default language
+        changeLanguage('en');
+    </script>
+
 </body>
+
 </html>
