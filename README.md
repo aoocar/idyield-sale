@@ -1,2 +1,3 @@
 # idyield-sale
-sale this dom
+sale this domain
+email   admin@idyield.com
