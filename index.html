@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDYield.com - Premium Domain For Sale</title>
+    <title>IDYield.com - 优质域名出售</title>
     <style>
         * {
             margin: 0;
@@ -12,47 +12,64 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
             color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            flex: 1;
+            padding: 0 20px;
         }
 
+        /* Header */
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+            pointer-events: none;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            z-index: 1;
         }
 
         .logo {
             font-size: 2rem;
             font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
         }
 
         .lang-switch {
             display: flex;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             border-radius: 25px;
-            padding: 5px;
+            padding: 4px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .lang-btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             border-radius: 20px;
             background: transparent;
@@ -60,27 +77,25 @@
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s ease;
+            font-size: 14px;
         }
 
         .lang-btn.active {
             background: white;
             color: #667eea;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .main-content {
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 80px 0;
             text-align: center;
-            background: rgba(255,255,255,0.95);
-            border-radius: 30px;
-            padding: 60px 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            position: relative;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
 
-        .domain-name {
+        .domain-display {
             font-size: 4rem;
             font-weight: 800;
             background: linear-gradient(45deg, #667eea, #764ba2);
@@ -88,83 +103,180 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 20px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            animation: pulse 2s infinite;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .tagline {
+        .domain-display::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .subtitle {
             font-size: 1.5rem;
             color: #666;
             margin-bottom: 40px;
             font-weight: 300;
         }
 
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Features Section */
         .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
-        .feature {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature:hover {
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: block;
         }
 
         .feature-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #333;
         }
 
         .feature-desc {
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
-        .cta-section {
+        /* CTA Section */
+        .cta {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 50px;
-            border-radius: 25px;
-            margin: 40px 0;
+            padding: 80px 0;
             text-align: center;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.1"/></svg>');
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 20px;
         }
 
         .cta-desc {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -172,40 +284,83 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .contact-btn:hover {
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
 
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Footer */
         .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
             text-align: center;
-            padding: 30px;
-            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-content {
+            border-top: 1px solid #34495e;
+            padding-top: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #7f8c8d;
             font-size: 0.9rem;
         }
 
-        .hidden {
-            display: none;
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -213,163 +368,263 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .domain-name {
+            .domain-display {
                 font-size: 2.5rem;
             }
             
-            .tagline {
-                font-size: 1.2rem;
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
             }
             
-            .main-content {
-                padding: 40px 20px;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
             
-            .cta-section {
-                padding: 30px 20px;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .cta-title {
-                font-size: 2rem;
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">IDYield</div>
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
-                <button class="lang-btn" onclick="switchLanguage('en')">English</button>
-            </div>
-        </header>
-
-        <main class="main-content">
-            <div id="zh-content">
-                <h1 class="domain-name">IDYield.com</h1>
-                <p class="tagline">优质域名，等待您的发现</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">品牌价值</h3>
-                        <p class="feature-desc">简洁易记的域名，完美契合身份识别、投资收益等多个领域的品牌需求</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">💼</div>
-                        <h3 class="feature-title">商业潜力</h3>
-                        <p class="feature-desc">适合金融科技、数据分析、投资管理等高价值行业的企业使用</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🚀</div>
-                        <h3 class="feature-title">发展前景</h3>
-                        <p class="feature-desc">随着数字经济的快速发展，优质域名的价值将持续增长</p>
-                    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">IDYield</div>
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
+                    <button class="lang-btn" onclick="switchLanguage('en')">English</button>
                 </div>
-            </div>
-
-            <div id="en-content" class="hidden">
-                <h1 class="domain-name">IDYield.com</h1>
-                <p class="tagline">Premium Domain, Awaiting Your Discovery</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Brand Value</h3>
-                        <p class="feature-desc">Memorable and concise domain name, perfect for branding in identity, investment yield, and related fields</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">💼</div>
-                        <h3 class="feature-title">Business Potential</h3>
-                        <p class="feature-desc">Ideal for high-value industries such as fintech, data analytics, and investment management</p>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🚀</div>
-                        <h3 class="feature-title">Growth Prospects</h3>
-                        <p class="feature-desc">As the digital economy rapidly expands, premium domain values will continue to appreciate</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <div class="cta-section">
-            <div id="zh-cta">
-                <h2 class="cta-title">有意购买？</h2>
-                <p class="cta-desc">这个优质域名现在可以转让。联系我们了解更多详情和报价。</p>
-                <a href="mailto:admin@idyield.com" class="contact-btn">
-                    <span>📧</span>
-                    联系我们
-                </a>
-            </div>
-            <div id="en-cta" class="hidden">
-                <h2 class="cta-title">Interested in Purchasing?</h2>
-                <p class="cta-desc">This premium domain is now available for transfer. Contact us for more details and pricing.</p>
-                <a href="mailto:admin@idyield.com" class="contact-btn">
-                    <span>📧</span>
-                    Contact Us
-                </a>
             </div>
         </div>
-    </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div id="zh-hero">
+                <h1 class="domain-display">IDYield.com</h1>
+                <p class="subtitle">优质域名，投资未来</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">字符长度</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2008</span>
+                        <span class="stat-label">注册年份</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Premium</span>
+                        <span class="stat-label">域名等级</span>
+                    </div>
+                </div>
+            </div>
+            <div id="en-hero" class="hidden">
+                <h1 class="domain-display">IDYield.com</h1>
+                <p class="subtitle">Premium Domain, Investment Future</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Characters</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2008</span>
+                        <span class="stat-label">Registered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Premium</span>
+                        <span class="stat-label">Grade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div id="zh-features">
+                <h2 class="section-title">域名优势</h2>
+                <p class="section-subtitle">IDYield.com 拥有卓越的品牌价值和商业潜力，是您数字化转型的理想选择</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h3 class="feature-title">品牌识别度</h3>
+                        <p class="feature-desc">简洁明了的域名，完美契合身份识别、投资收益等多个商业领域，具有极高的品牌价值和记忆度</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💼</span>
+                        <h3 class="feature-title">商业应用</h3>
+                        <p class="feature-desc">适用于金融科技、数据分析、投资管理、身份验证等高价值行业，市场前景广阔</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🚀</span>
+                        <h3 class="feature-title">增值潜力</h3>
+                        <p class="feature-desc">随着数字经济的快速发展，优质域名资源稀缺，具有巨大的升值空间和投资价值</p>
+                    </div>
+                </div>
+            </div>
+            <div id="en-features" class="hidden">
+                <h2 class="section-title">Domain Advantages</h2>
+                <p class="section-subtitle">IDYield.com possesses exceptional brand value and commercial potential, making it an ideal choice for your digital transformation</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h3 class="feature-title">Brand Recognition</h3>
+                        <p class="feature-desc">Concise and memorable domain name, perfectly suited for identity recognition, investment yield, and multiple business sectors with high brand value</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💼</span>
+                        <h3 class="feature-title">Business Applications</h3>
+                        <p class="feature-desc">Ideal for high-value industries including fintech, data analytics, investment management, and identity verification with broad market prospects</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🚀</span>
+                        <h3 class="feature-title">Appreciation Potential</h3>
+                        <p class="feature-desc">With the rapid development of digital economy, premium domain resources are scarce, offering tremendous appreciation potential and investment value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div id="zh-cta">
+                    <h2 class="cta-title">立即询价</h2>
+                    <p class="cta-desc">这个珍贵的域名现在可以转让。联系我们获取详细报价和转让流程。</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:admin@idyield.com" class="btn btn-primary">
+                            <span>📧</span>
+                            发送邮件
+                        </a>
+                        <a href="mailto:admin@idyield.com?subject=IDYield.com域名询价" class="btn btn-secondary">
+                            <span>💬</span>
+                            立即咨询
+                        </a>
+                    </div>
+                </div>
+                <div id="en-cta" class="hidden">
+                    <h2 class="cta-title">Get Quote Now</h2>
+                    <p class="cta-desc">This valuable domain is now available for transfer. Contact us for detailed pricing and transfer process.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:admin@idyield.com" class="btn btn-primary">
+                            <span>📧</span>
+                            Send Email
+                        </a>
+                        <a href="mailto:admin@idyield.com?subject=IDYield.com Domain Inquiry" class="btn btn-secondary">
+                            <span>💬</span>
+                            Contact Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div id="zh-footer">
-            <p>&copy; 2025 IDYield.com. 优质域名销售 | 联系邮箱: admin@idyield.com</p>
-        </div>
-        <div id="en-footer" class="hidden">
-            <p>&copy; 2025 IDYield.com. Premium Domain Sale | Contact: admin@idyield.com</p>
+        <div class="container">
+            <div class="footer-content">
+                <div id="zh-footer">
+                    <div class="footer-links">
+                        <a href="mailto:admin@idyield.com" class="footer-link">联系我们</a>
+                        <a href="mailto:admin@idyield.com?subject=域名转让咨询" class="footer-link">域名转让</a>
+                        <a href="mailto:admin@idyield.com?subject=商务合作" class="footer-link">商务合作</a>
+                    </div>
+                    <p class="copyright">&copy; 2025 IDYield.com 优质域名出售 | 联系邮箱: admin@idyield.com</p>
+                </div>
+                <div id="en-footer" class="hidden">
+                    <div class="footer-links">
+                        <a href="mailto:admin@idyield.com" class="footer-link">Contact Us</a>
+                        <a href="mailto:admin@idyield.com?subject=Domain Transfer Inquiry" class="footer-link">Domain Transfer</a>
+                        <a href="mailto:admin@idyield.com?subject=Business Cooperation" class="footer-link">Business Cooperation</a>
+                    </div>
+                    <p class="copyright">&copy; 2025 IDYield.com Premium Domain Sale | Contact: admin@idyield.com</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
         function switchLanguage(lang) {
-            // 更新按钮状态
+            // Update button states
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
 
-            // 切换内容
-            if (lang === 'zh') {
-                document.getElementById('zh-content').classList.remove('hidden');
-                document.getElementById('en-content').classList.add('hidden');
-                document.getElementById('zh-cta').classList.remove('hidden');
-                document.getElementById('en-cta').classList.add('hidden');
-                document.getElementById('zh-footer').classList.remove('hidden');
-                document.getElementById('en-footer').classList.add('hidden');
-                document.documentElement.lang = 'zh-CN';
-            } else {
-                document.getElementById('zh-content').classList.add('hidden');
-                document.getElementById('en-content').classList.remove('hidden');
-                document.getElementById('zh-cta').classList.add('hidden');
-                document.getElementById('en-cta').classList.remove('hidden');
-                document.getElementById('zh-footer').classList.add('hidden');
-                document.getElementById('en-footer').classList.remove('hidden');
-                document.documentElement.lang = 'en';
-            }
+            // Switch content
+            const sections = ['hero', 'features', 'cta', 'footer'];
+            sections.forEach(section => {
+                const zhElement = document.getElementById(`zh-${section}`);
+                const enElement = document.getElementById(`en-${section}`);
+                
+                if (lang === 'zh') {
+                    zhElement.classList.remove('hidden');
+                    enElement.classList.add('hidden');
+                    document.documentElement.lang = 'zh-CN';
+                } else {
+                    zhElement.classList.add('hidden');
+                    enElement.classList.remove('hidden');
+                    document.documentElement.lang = 'en';
+                }
+            });
         }
 
-        // 添加页面加载动画
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .section-title, .cta-title').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add page load effect
         window.addEventListener('load', function() {
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease-in-out';
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
-        });
-
-        // 添加邮件链接点击统计（如果需要）
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.contact-btn')) {
-                console.log('Contact button clicked');
-            }
         });
     </script>
 </body>
