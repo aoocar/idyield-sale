@@ -16,12 +16,48 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            transition: all 0.3s ease;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 8px;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #9333EA;
+            font-weight: 700;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
         
         /* Header */
@@ -75,6 +111,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
         
         .hero::before {
@@ -571,6 +608,7 @@
             justify-content: center;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .social-icon:hover {
@@ -662,6 +700,11 @@
                 width: 210px;
                 height: 420px;
             }
+            
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
         }
         
         /* Animation utilities */
@@ -677,17 +720,28 @@
                 transform: translateY(0);
             }
         }
+        
+        /* Hidden class for language switching */
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <header>
         <nav class="container">
             <div class="logo">IdYield</div>
             <ul class="nav-links">
-                <li><a href="#how">运作方式</a></li>
-                <li><a href="#benefits">收益优势</a></li>
-                <li><a href="#trust">安全保障</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#how" data-zh="运作方式" data-en="How It Works">运作方式</a></li>
+                <li><a href="#benefits" data-zh="收益优势" data-en="Benefits">收益优势</a></li>
+                <li><a href="#trust" data-zh="安全保障" data-en="Security">安全保障</a></li>
+                <li><a href="#contact" data-zh="联系我们" data-en="Contact">联系我们</a></li>
             </ul>
         </nav>
     </header>
@@ -698,11 +752,11 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1>用你的身份，轻松赚取被动收入</h1>
-                        <p>IdYield 利用 AI 和你的社交媒体账号，自动生成内容，帮你在 TikTok、YouTube 等平台赚钱——无需自己创作！</p>
+                        <h1 data-zh="用你的身份，轻松赚取被动收入" data-en="Turn Your Identity into Passive Income">用你的身份，轻松赚取被动收入</h1>
+                        <p data-zh="IdYield 利用 AI 和你的社交媒体账号，自动生成内容，帮你在 TikTok、YouTube 等平台赚钱——无需自己创作！" data-en="IdYield uses AI and your social media accounts to automatically generate content and help you earn money on TikTok, YouTube and other platforms - no content creation required!">IdYield 利用 AI 和你的社交媒体账号，自动生成内容，帮你在 TikTok、YouTube 等平台赚钱——无需自己创作！</p>
                         <div class="cta-buttons">
-                            <a href="#register" class="btn-primary">立即加入，开启收益之旅</a>
-                            <a href="#how" class="btn-secondary">了解如何运作</a>
+                            <a href="#register" class="btn-primary" data-zh="立即加入，开启收益之旅" data-en="Join Now, Start Earning">立即加入，开启收益之旅</a>
+                            <a href="#how" class="btn-secondary" data-zh="了解如何运作" data-en="Learn How It Works">了解如何运作</a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -710,7 +764,7 @@
                             <div class="phone-screen">
                                 <div class="earning-notification">
                                     <div class="earning-amount">+$89.50</div>
-                                    <div class="earning-text">今日收益 · TikTok视频</div>
+                                    <div class="earning-text" data-zh="今日收益 · TikTok视频" data-en="Today's Earnings · TikTok Video">今日收益 · TikTok视频</div>
                                 </div>
                             </div>
                         </div>
@@ -723,24 +777,24 @@
         <section class="value-prop">
             <div class="container">
                 <div class="section-header">
-                    <h2>为什么选择 IdYield？</h2>
-                    <p>我们让赚钱变得简单、安全、透明</p>
+                    <h2 data-zh="为什么选择 IdYield？" data-en="Why Choose IdYield?">为什么选择 IdYield？</h2>
+                    <p data-zh="我们让赚钱变得简单、安全、透明" data-en="We make earning money simple, secure, and transparent">我们让赚钱变得简单、安全、透明</p>
                 </div>
                 <div class="value-grid">
                     <div class="value-card">
                         <div class="value-icon">🤖</div>
-                        <h3>轻松赚钱</h3>
-                        <p>只需授权你的社交媒体账号，IdYield 的 AI 技术自动生成热门内容，帮你在 YouTube、TikTok 等平台获得流量和收益。</p>
+                        <h3 data-zh="轻松赚钱" data-en="Easy Earning">轻松赚钱</h3>
+                        <p data-zh="只需授权你的社交媒体账号，IdYield 的 AI 技术自动生成热门内容，帮你在 YouTube、TikTok 等平台获得流量和收益。" data-en="Simply authorize your social media accounts, and IdYield's AI technology automatically generates trending content to help you gain traffic and revenue on YouTube, TikTok and other platforms.">只需授权你的社交媒体账号，IdYield 的 AI 技术自动生成热门内容，帮你在 YouTube、TikTok 等平台获得流量和收益。</p>
                     </div>
                     <div class="value-card">
                         <div class="value-icon">💰</div>
-                        <h3>零创作负担</h3>
-                        <p>无需拍摄视频或撰写文章，我们的 AI 帮你搞定一切，省时省力。</p>
+                        <h3 data-zh="零创作负担" data-en="Zero Content Creation">零创作负担</h3>
+                        <p data-zh="无需拍摄视频或撰写文章，我们的 AI 帮你搞定一切，省时省力。" data-en="No need to shoot videos or write articles - our AI handles everything for you, saving time and effort.">无需拍摄视频或撰写文章，我们的 AI 帮你搞定一切，省时省力。</p>
                     </div>
                     <div class="value-card">
                         <div class="value-icon">🔗</div>
-                        <h3>透明收益</h3>
-                        <p>通过区块链技术，收益分配公平透明，你可随时查看收入明细。</p>
+                        <h3 data-zh="透明收益" data-en="Transparent Revenue">透明收益</h3>
+                        <p data-zh="通过区块链技术，收益分配公平透明，你可随时查看收入明细。" data-en="Through blockchain technology, revenue distribution is fair and transparent, and you can check your income details at any time.">通过区块链技术，收益分配公平透明，你可随时查看收入明细。</p>
                     </div>
                 </div>
             </div>
@@ -750,129 +804,23 @@
         <section class="how-it-works" id="how">
             <div class="container">
                 <div class="section-header">
-                    <h2>三步开启你的收益之旅</h2>
-                    <p>简单注册，授权身份，坐享收益</p>
+                    <h2 data-zh="三步开启你的收益之旅" data-en="Start Your Earning Journey in 3 Steps">三步开启你的收益之旅</h2>
+                    <p data-zh="简单注册，授权身份，坐享收益" data-en="Simple registration, authorize identity, enjoy earnings">简单注册，授权身份，坐享收益</p>
                 </div>
                 <div class="steps-container">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h3>注册并授权</h3>
-                        <p>加入 IdYield，安全授权你的 TikTok、YouTube 或其他社交媒体账号。</p>
+                        <h3 data-zh="注册并授权" data-en="Register & Authorize">注册并授权</h3>
+                        <p data-zh="加入 IdYield，安全授权你的 TikTok、YouTube 或其他社交媒体账号。" data-en="Join IdYield and securely authorize your TikTok, YouTube or other social media accounts.">加入 IdYield，安全授权你的 TikTok、YouTube 或其他社交媒体账号。</p>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3>AI 自动创作</h3>
-                        <p>我们的 AI 技术为你生成符合平台算法的热门内容，无需你动手。</p>
+                        <h3 data-zh="AI 自动创作" data-en="AI Auto-Creation">AI 自动创作</h3>
+                        <p data-zh="我们的 AI 技术为你生成符合平台算法的热门内容，无需你动手。" data-en="Our AI technology generates trending content that aligns with platform algorithms, requiring no effort from you.">我们的 AI 技术为你生成符合平台算法的热门内容，无需你动手。</p>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3>赚取收益</h3>
-                        <p>内容带来流量和广告收入，你按比例获得收益，实时查看明细。</p>
+                        <h3 data-zh="赚取收益" data-en="Earn Revenue">赚取收益</h3>
+                        <p data-zh="内容带来流量和广告收入，你按比例获得收益，实时查看明细。" data-en="Content generates traffic and ad revenue, you receive proportional earnings with real-time tracking.">内容带来流量和广告收入，你按比例获得收益，实时查看明细。</p>
                     </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#register" class="btn-primary">现在开始，授权你的账号</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Benefits -->
-        <section class="benefits" id="benefits">
-            <div class="container">
-                <div class="section-header">
-                    <h2>你的身份，价值无限</h2>
-                    <p>IdYield 帮你把社交媒体账号变成赚钱机器</p>
-                </div>
-                <div class="benefits-content">
-                    <div>
-                        <ul class="benefits-list">
-                            <li>
-                                <h4>被动收入</h4>
-                                <p>每月通过广告分成、品牌合作等获得稳定收益。</p>
-                            </li>
-                            <li>
-                                <h4>高分成比例</h4>
-                                <p>最高可获 80% 的内容收益，远超行业平均水平。</p>
-                            </li>
-                            <li>
-                                <h4>数据透明</h4>
-                                <p>区块链技术确保每笔收益可追溯，实时查看流量和收入。</p>
-                            </li>
-                            <li>
-                                <h4>灵活控制</h4>
-                                <p>随时调整授权范围或退出，掌控你的身份。</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="benefits-visual">
-                        <div class="earnings-chart">
-                            <div class="chart-title">月收益增长趋势</div>
-                            <div class="chart-bars">
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                            </div>
-                            <div class="chart-labels">
-                                <span>1月</span>
-                                <span>2月</span>
-                                <span>3月</span>
-                                <span>4月</span>
-                                <span>5月</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Success Stories -->
-        <section class="success-stories">
-            <div class="container">
-                <div class="section-header">
-                    <h2>看看 IdYield 如何改变他们的生活</h2>
-                    <p>普通人也能通过 IdYield 赚取额外收入</p>
-                </div>
-                <div class="stories-grid">
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">小</div>
-                            <div class="story-info">
-                                <h4>小明</h4>
-                                <p>大学生</p>
-                            </div>
-                        </div>
-                        <p class="story-quote">"我授权了我的 TikTok 账号，IdYield 的 AI 帮我发布了短视频，上个月赚了 $200，完全没花时间！"</p>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">L</div>
-                            <div class="story-info">
-                                <h4>Lisa</h4>
-                                <p>自由职业者</p>
-                            </div>
-                        </div>
-                        <p class="story-quote">"IdYield 让我把闲置的 YouTube 账号变成收入来源，收益透明，随时提现，超级方便！"</p>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">王</div>
-                            <div class="story-info">
-                                <h4>王先生</h4>
-                                <p>上班族</p>
-                            </div>
-                        </div>
-                        <p class="story-quote">"每天下班回家就能看到收益通知，AI 生成的内容质量很高，粉丝增长很快！"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Trust & Safety -->
-        <section class="trust-safety" id="trust">
-            <div class="container">
-                <div class="section-header">
-                    <h2>你的身份，我们守护</h2>
-                    <p>IdYield 确保你的数据安全和收益公平</p>
                 </div>
